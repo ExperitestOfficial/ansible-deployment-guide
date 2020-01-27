@@ -12,5 +12,5 @@ Avoid the pitfalls by reading this documntation.
 
 This repo contains **Onpremise deployment** for using ansible to deploy experitest products without internet on ansible control machine:
 
-- [Onpremise deployment](./onpremise-deploy-without-internet/Readme.md) \
+- [Onpremise deployment](./onpremise-deploy-without-internet) \
 Install ansible to onpremise systems without internet.
