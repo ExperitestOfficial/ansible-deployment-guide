@@ -3,7 +3,7 @@
 
 ## Requirements:
 
-- Make sure python2.7, pip and unzip tools is already installed on Linux and Mac control machines
+- Make sure python3.6, pip3 and unzip tools is already installed on Linux or Mac control machines
 
 - On any machine which has internet connection, download offline ansible installation from below url <br>
 https://devops-artifacts.experitest.com/ansible/onpremise/experitest-ansible-offline-installation.zip
@@ -17,43 +17,25 @@ https://devops-artifacts.experitest.com/ansible/onpremise/experitest-ansible-off
 
 
 ```sh
-# using pip
-pip install ./pip-offline/ansible-offline/*
 
 # centos / rhel
+pip3 install ./pip3-offline/ansible-offline/*
+pip3 install ./pip3-offline/pywinrm-offline/*
 sudo yum localinstall -y ./yum-offline/*/*
-sudo pip install ./pip-offline/pywinrm-offline/*
-
-# ubuntu
-pip install ./pip-offline/ansible-offline/*
-pip install ./pip-offline/pywinrm-offline/*
-
-# debian
-pip install ./pip-offline/ansible-offline/*
-pip install ./pip-offline/pywinrm-offline/*
-
-# fedora
-pip install ./pip-offline/ansible-offline/*
-pip install ./pip-offline/pywinrm-offline/*
 
 # mac
-pip install ./pip-offline/ansible-offline/*
-pip install ./pip-offline/pywinrm-offline/*
+pip3 install ./pip3-offline/ansible-offline/*
+pip3 install ./pip3-offline/pywinrm-offline/*
+brew install ./brew-offline/*
+
 ```
 
 * check the ansible version <br>
 `ansible --version`
 
-* [make sure git is installed on the machine](../../appendix/install-git.md)
-
 * [genereate \ add ssh key](../SSH.md#passwordless-login)
 * [add hosts to known_hosts file](../SSH.md#known-hosts)
 
-
-* connecting to ***windows*** node machines requires
-```sh
-pip install ./pip-offline/pywinrm-offline/*
-```
 
 ## Install Roles to Ansible Project:
 
