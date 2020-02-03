@@ -10,7 +10,6 @@ https://devops-artifacts.experitest.com/ansible/onpremise/experitest-ansible-off
 
 - Copy and unzip the downloaded experitest-ansible-offline-installation.zip file to ansible master (control machine) and go to the extracted folder "experitest-ansible-offline-installation"
 
-
 ## Install Ansible:
 
 * Go to the downloaded extracted folder and install ansible (depending on distribution) using below commands.
@@ -36,6 +35,11 @@ brew install ./brew-offline/*
 * [genereate \ add ssh key](../SSH.md#passwordless-login)
 * [add hosts to known_hosts file](../SSH.md#known-hosts)
 
+
+## Flow Diagram:
+![myimage-alt-tag](https://github.com/ExperitestOfficial/ansible-deployment-guide/blob/onpremise-deployment-project-example/onpremise-deploy-without-internet/Ansible%20OnPremises%20Flow%20Diagram%20v1.2.png)
+
+<br>
 
 ## Install Roles to Ansible Project:
 
