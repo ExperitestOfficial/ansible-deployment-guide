@@ -1,0 +1,5 @@
+
+- hosts: cloud-agents
+
+  roles:
+    - role: cloud-agent

@@ -1,0 +1,5 @@
+
+- hosts: selenium-agents
+  
+  roles:
+    - role: selenium-agent

@@ -1,0 +1,8 @@
+
+- hosts: reporters
+
+  roles:
+    - role: reporter
+      db_connection_string: jdbc://postgres:5432/reporter
+      db_username: postgres
+      db_password: mysupersecurepassword
