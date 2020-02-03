@@ -20,7 +20,7 @@ https://devops-artifacts.experitest.com/ansible/onpremise/experitest-ansible-off
 ```sh
 
 # for example
-cd /shared/experitest/experitest-ansible-offline-installation)
+cd /shared/experitest/experitest-ansible-offline-installation
 ```
 
 ```sh
