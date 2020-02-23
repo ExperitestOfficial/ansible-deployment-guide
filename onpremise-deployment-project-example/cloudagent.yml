@@ -1,0 +1,7 @@
+
+- hosts: cloud-agents
+
+  roles:
+    - role: cloud-agent
+      extra_xml_conf: "{{ cloudagent.xml_conf |  default({})  }}"
+      extra_java_options: "{{ cloudagent.extra_java_options | default({}) }}"

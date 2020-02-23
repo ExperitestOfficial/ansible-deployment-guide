@@ -1,0 +1,5 @@
+- hosts: app-signers
+
+  roles:
+    - role: app-signer
+      extra_java_options: "{{ appsigner.extra_java_options | default([]) }}"

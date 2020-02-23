@@ -1,0 +1,7 @@
+
+- hosts: regional-proxies
+
+  roles:
+    - role: regional-proxy
+      extra_java_options: "{{ regionproxy.extra_java_options | default([]) }}"
+      extra_application_properties: "{{ regionproxy.app_properties | default({}) }}"

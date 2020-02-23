@@ -1,0 +1,11 @@
+
+- hosts: cloud-servers
+
+  roles:
+    - role: cloud-server
+      db_connection_string: "{{ cloud.db_connection_string }}"
+      db_password: "{{ cloud.db_password }}"
+      license_type: "{{ cloud.license.license_type }}"
+      extra_xml_conf: "{{ cloud.xml_conf }}"
+      extra_application_properties: "{{ cloud.app_properties }}"
+      extra_java_options: "{{ cloud.extra_java_options | default([]) }}"

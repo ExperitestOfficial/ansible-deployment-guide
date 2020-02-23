@@ -1,5 +1,0 @@
-
-- hosts: file-storage
-
-  roles:
-    - role: file-storage

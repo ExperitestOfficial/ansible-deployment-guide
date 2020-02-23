@@ -1,0 +1,7 @@
+
+- hosts: file-storage
+
+  roles:
+    - role: file-storage
+      extra_java_options: "{{ filestorage.extra_java_options | default([]) }}"
+      extra_application_properties: "{{ filestorage.app_properties | default({}) }}"

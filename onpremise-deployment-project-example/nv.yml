@@ -1,0 +1,10 @@
+
+- hosts: cloud-nv
+
+  roles:
+    - role: cloud-nv
+      server_port: "{{ nv.server_port }}"
+      proxy_port: "{{ nv.proxy_port }}"
+      tunneling_port: "{{ nv.tunneling_port }}"
+      uplink_eth: "{{ nv.uplink_eth }}"
+      wifi_eth: "{{ nv.wifi_eth }}"
