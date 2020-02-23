@@ -51,7 +51,7 @@ sh sshpass-install.sh
 
 
 ## Flow Diagram:
-![myimage-alt-tag](https://github.com/ExperitestOfficial/ansible-deployment-guide/blob/onpremise-deployment-project-example/onpremise-deploy-without-internet/Ansible%20OnPremises%20Flow%20Diagram%20v1.2.png)
+![myimage-alt-tag](Ansible%20OnPremises%20Flow%20Diagram%20v1.2.png)
 
 <br>
 
