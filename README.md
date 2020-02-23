@@ -5,7 +5,7 @@ Experitest is a **private company**, creating software to manage enterprise leve
 
 This repo contains **Onpremise deployment** for using ansible to deploy experitest products without internet on ansible control machine:
 
-## <u> Prepare Ansible Control Machine - Without internet </u>
+# Prepare Ansible Control Machine - Without internet
 
 ## Requirements:
 
