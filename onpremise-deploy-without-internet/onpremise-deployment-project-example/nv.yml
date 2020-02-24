@@ -1,5 +1,0 @@
-
-- hosts: cloud-nv
-
-  roles:
-    - role: cloud-nv

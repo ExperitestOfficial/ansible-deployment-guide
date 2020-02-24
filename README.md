@@ -28,7 +28,7 @@ Useful for testing \ development.
 Deploying the entire stack in multi host environment
 
 
-- [Onpremise deployment](./onpremise-deploy-without-internet) \
+- [Onpremise deployment](https://github.com/ExperitestOfficial/ansible-deployment-guide/tree/onpremise-deployment-project-example) \
 Install ansible to onpremise systems without internet.
 
 - [OS Support Matrix](./compatibility/OS.md) \

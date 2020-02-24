@@ -1,6 +1,0 @@
-
-- hosts: cloud-agents
-
-  roles:
-    - role: audioservice-cloudagent
-      autologin_pass: myloginpassword
