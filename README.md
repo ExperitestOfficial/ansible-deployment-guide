@@ -26,19 +26,19 @@ https://devops-artifacts.experitest.com/ansible/onpremise/experitest-ansible-off
 ```sh
 
 # for example
-cd /shared/experitest/experitest-ansible-offline-installation)
+cd /shared/experitest/experitest-ansible-offline-installation
 ```
 
 ```sh
 
 # for centos / rhel
-pip3 install ./linux/pip3/ansible-offline/*
-pip3 install ./linux/pip3/pywinrm-offline/*
+sudo pip3 install ./linux/pip3/ansible-offline/*
+sudo pip3 install ./linux/pip3/pywinrm-offline/*
 sudo yum localinstall -y ./linux/sshpass/*
 
 # for mac
-pip3 install ./mac/pip3/ansible-offline/*
-pip3 install ./mac/pip3/pywinrm-offline/*
+sudo pip3 install ./mac/pip3/ansible-offline/*
+sudo pip3 install ./mac/pip3/pywinrm-offline/*
 cd  ./mac/sshpass
 sh sshpass-install.sh
 
