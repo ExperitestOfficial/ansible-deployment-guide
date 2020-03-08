@@ -92,7 +92,7 @@ git clone https://github.com/ExperitestOfficial/ansible-role-disk-space-validato
 
 * From onpremise-deployment-project-example folder, check the connections with the target machines.
 
-```
+```sh
 ansible-playbook -i inventories/hosts.ini check-connection.yml
 ```
 
@@ -123,3 +123,19 @@ git clone https://github.com/ExperitestOfficial/ansible-role-disk-space-validato
 ```
 
 * Copy the new roles folder to ansible controller shared drive and replace it with existing roles folder under onpremise-deployment-project-example folder.
+
+
+## Install Java role:
+* From machine which has internet connection, download java8 offline installer.
+
+```sh
+https://devops-artifacts.experitest.com/java/linux/jre1.8.0_221-linux-x64.tar.gz
+```
+
+* Copy the jre1.8.0_221-linux-x64.tar.gz file to the shared folder of ansible control machine (for e.g. /shared/experitest/java/linux/jre1.8.0_221-linux-x64.tar.gz)
+
+* From ansible controller machine, update java8 playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/) and run the playbook.
+
+```sh
+ansible-playbook -i inventories/hosts.ini java8.yml
+```
