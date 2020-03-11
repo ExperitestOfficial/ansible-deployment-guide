@@ -132,7 +132,9 @@ git clone https://github.com/ExperitestOfficial/ansible-role-disk-space-validato
 https://devops-artifacts.experitest.com/java/linux/jre1.8.0_221-linux-x64.tar.gz
 ```
 
-* Copy the jre1.8.0_221-linux-x64.tar.gz file to the shared folder of ansible control machine (for e.g. /shared/experitest/java/linux/jre1.8.0_221-linux-x64.tar.gz)
+* Create java/linux folder inside shared experitest folder for java installers (for e.g. /shared/experitest/java/linux)
+
+* Copy the jre1.8.0_221-linux-x64.tar.gz file to the shared experitest folder inside java/linux/ folder path on ansible control machine (for e.g. /shared/experitest/java/linux/jre1.8.0_221-linux-x64.tar.gz)
 
 * From ansible controller machine, update java8 playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/) and run the playbook.
 
