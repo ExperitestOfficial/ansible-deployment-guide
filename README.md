@@ -141,3 +141,38 @@ https://devops-artifacts.experitest.com/java/linux/jre1.8.0_221-linux-x64.tar.gz
 ```sh
 ansible-playbook -i inventories/hosts.ini java8.yml
 ```
+
+## Install CloudServer role:
+
+### Prerequisites:
+
+* SSH service should be running on the cloudserver machine and ssh user was added to sudoers file with NOPASSWD: ALL privileges.
+
+* Postgresql Server is not a part of ansible deployment, it should be pre-installed and configured on cloud server.
+
+* Java role should be installed.
+
+### Requirements:
+
+- On any machine which has internet connection, download prereq_linux_common.zip file from below url <br>
+https://devops-artifacts.experitest.com/ansible/onpremise/prereq_linux_common.zip
+
+- Copy and unzip the downloaded prereq_linux_common.zip file to ansible master (control machine) shared/nfs folder (for e.g. /shared/experitest/prereq_linux_common)
+
+### Install CloudServer
+
+* On any machine which has internet connection, download cloud-server dist-Linux-SERVER-{version}.zip installer file (validate the latest app_version build from cloudserver role from github)
+
+```sh
+https://devops-artifacts.experitest.com/cloud-server/linux/dist-Linux-SERVER-20.2.8326.zip
+```
+
+* Create cloud-server/linux folder inside shared experitest folder for java installers (for e.g. /shared/experitest/cloud-server/linux)
+
+* Copy the cloud-server dist-Linux-SERVER-{version}.zip file to the shared experitest folder inside cloud-server/linux folder path on ansible control machine (for e.g. /shared/experitest/cloud-server/linux/dist-Linux-SERVER-20.2.8326.zip)
+
+* From ansible controller machine, update cloudserver.yml playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/ and set the other required paramters.) and run the playbook.
+
+```sh
+ansible-playbook -i inventories/hosts.ini cloudserver.yml
+```
