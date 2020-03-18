@@ -171,8 +171,8 @@ https://devops-artifacts.experitest.com/cloud-server/linux/dist-Linux-SERVER-20.
 
 * Copy the cloud-server dist-Linux-SERVER-{version}.zip file to the shared experitest folder inside cloud-server/linux folder path on ansible control machine (for e.g. /shared/experitest/cloud-server/linux/dist-Linux-SERVER-20.2.8326.zip)
 
-* From ansible controller machine, update cloudserver.yml playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/ and set the other required paramters.) and run the playbook.
+* From ansible controller machine, update cloudserver.yml playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/ and set the other required parameters.) and run the playbook with downloaded app_version.
 
 ```sh
-ansible-playbook -i inventories/hosts.ini cloudserver.yml
+ansible-playbook -i inventories/hosts.ini cloudserver.yml -e app_version=20.2.8326
 ```
