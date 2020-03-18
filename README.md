@@ -167,7 +167,7 @@ https://devops-artifacts.experitest.com/ansible/onpremise/prereq_linux_common.zi
 https://devops-artifacts.experitest.com/cloud-server/linux/dist-Linux-SERVER-20.2.8326.zip
 ```
 
-* Create cloud-server/linux folder inside shared experitest folder for java installers (for e.g. /shared/experitest/cloud-server/linux)
+* Create cloud-server/linux folder inside shared experitest folder for cloudserver installers (for e.g. /shared/experitest/cloud-server/linux)
 
 * Copy the cloud-server dist-Linux-SERVER-{version}.zip file to the shared experitest folder inside cloud-server/linux folder path on ansible control machine (for e.g. /shared/experitest/cloud-server/linux/dist-Linux-SERVER-20.2.8326.zip)
 
@@ -175,4 +175,39 @@ https://devops-artifacts.experitest.com/cloud-server/linux/dist-Linux-SERVER-20.
 
 ```sh
 ansible-playbook -i inventories/hosts.ini cloudserver.yml -e app_version=20.2.8326
+```
+
+## Install Region Proxy role:
+
+### Prerequisites:
+
+* SSH service should be running on the regionproxy machine and ssh user was added to sudoers file with NOPASSWD: ALL privileges.
+
+* NGINX 1.15.10 should pre-installed and configured on region-proxy.
+
+* Java role should be installed.
+
+### Requirements:
+
+- On any machine which has internet connection, download prereq_linux_common.zip file from below url <br>
+https://devops-artifacts.experitest.com/ansible/onpremise/prereq_linux_common.zip
+
+- Copy and unzip the downloaded prereq_linux_common.zip file to ansible master (control machine) shared/nfs folder (for e.g. /shared/experitest/prereq_linux_common)
+
+### Install RegionPorxy
+
+* On any machine which has internet connection, download regionalproxy dist-Linux-PROXY-{version}.zip installer file (validate the latest app_version build from cloudserver role from github)
+
+```sh
+https://devops-artifacts.experitest.com/regional-nginx/linux/dist-Linux-PROXY-20.2.8326.zip
+```
+
+* Create regional-nginx/linux folder inside shared experitest folder for regionproxy installers (for e.g. /shared/experitest/regional-nginx/linux)
+
+* Copy the regionproxy dist-Linux-PROXY-{version}.zip file to the shared experitest folder inside regional-nginx/linux folder path on ansible control machine (for e.g. /shared/experitest/regional-nginx/linux/dist-Linux-PROXY-20.2.8326.zip)
+
+* From ansible controller machine, update proxy.yml playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/ and set the other required parameters.) and run the playbook with downloaded app_version.
+
+```sh
+ansible-playbook -i inventories/hosts.ini proxy.yml -e app_version=20.2.8326
 ```
