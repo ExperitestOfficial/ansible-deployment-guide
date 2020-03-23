@@ -194,7 +194,12 @@ https://devops-artifacts.experitest.com/ansible/onpremise/prereq_linux_common.zi
 
 - Copy and unzip the downloaded prereq_linux_common.zip file to ansible master (control machine) shared/nfs folder (for e.g. /shared/experitest/prereq_linux_common)
 
-### Install RegionPorxy
+- On any machine which has internet connection, download prereq_linux_nginx.zip file from below url <br>
+https://devops-artifacts.experitest.com/ansible/onpremise/prereq_linux_nginx.zip
+
+- Copy and unzip the downloaded prereq_linux_nginx.zip file to ansible master (control machine) shared/nfs folder (for e.g. /shared/experitest/prereq_linux_nginx)
+
+### Install RegionProxy
 
 * On any machine which has internet connection, download regionalproxy dist-Linux-PROXY-{version}.zip installer file (validate the latest app_version build from cloudserver role from github)
 
