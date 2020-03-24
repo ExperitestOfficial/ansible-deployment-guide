@@ -240,10 +240,43 @@ https://devops-artifacts.experitest.com/app-signer/linux/dist-Linux-SIGNER-20.2.
 
 * Create app-signer/linux folder inside shared experitest folder for appsigner installers (for e.g. /shared/experitest/app-signer/linux)
 
-* Copy the app-signer dist-Linux-SERVER-{version}.zip file to the shared experitest folder inside app-signer/linux folder path on ansible control machine (for e.g. /shared/experitest/app-signer/linux/dist-Linux-SIGNER-20.2.8326.zip)
+* Copy the app-signer dist-Linux-SIGNER-{version}.zip file to the shared experitest folder inside app-signer/linux folder path on ansible control machine (for e.g. /shared/experitest/app-signer/linux/dist-Linux-SIGNER-20.2.8326.zip)
 
 * From ansible controller machine, update appsigner.yml playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/ and set the other required parameters.) and run the playbook with downloaded app_version.
 
 ```sh
 ansible-playbook -i inventories/hosts.ini appsigner.yml -e app_version=20.2.8326
+```
+
+## Install File Storage role:
+
+### Prerequisites:
+
+* SSH service should be running on the filestorage machine and ssh user was added to sudoers file with NOPASSWD: ALL privileges.
+
+* Java role should be installed.
+
+### Requirements:
+
+- On any machine which has internet connection, download prereq_linux_common.zip file from below url <br>
+https://devops-artifacts.experitest.com/ansible/onpremise/prereq_linux_common.zip
+
+- Copy and unzip the downloaded prereq_linux_common.zip file to ansible master (control machine) shared/nfs folder (for e.g. /shared/experitest/prereq_linux_common)
+
+### Install File Storage
+
+* On any machine which has internet connection, download file-storage dist-Linux-STORAGE-{version}.zip installer file (validate the latest app_version build from filestorage role from github)
+
+```sh
+https://devops-artifacts.experitest.com/file-storage/linux/dist-Linux-STORAGE-20.2.8326.zip
+```
+
+* Create file-storage/linux folder inside shared experitest folder for filestorage installers (for e.g. /shared/experitest/file-storage/linux)
+
+* Copy the file-storage dist-Linux-STORAGE-{version}.zip file to the shared experitest folder inside file-storage/linux folder path on ansible control machine (for e.g. /shared/experitest/file-storage/linux/dist-Linux-STORAGE-20.2.8326.zip)
+
+* From ansible controller machine, update filestorage.yml playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/ and set the other required parameters.) and run the playbook with downloaded app_version.
+
+```sh
+ansible-playbook -i inventories/hosts.ini filestorage.yml -e app_version=20.2.8326
 ```
