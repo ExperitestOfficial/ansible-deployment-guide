@@ -78,7 +78,3 @@
         fail_msg: /usr/local/bin is not in path
         that: p1.stdout is search("/usr/local/bin")
 
-- hosts: all
-  roles:
-    - role: disk-space-validator
-      required_space_mb: 5000

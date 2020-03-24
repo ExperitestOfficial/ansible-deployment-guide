@@ -3,3 +3,6 @@
   
   roles:
     - role: selenium-agent
+      enable_tunneling: "{{ selenium.enable_tunneling | default(True) }}"
+      use_external_proxy: "{{ selenium.use_external_proxy | default(False) }}"
+      server_port: "{{ selenium.server_port | default(__server_port) }}"

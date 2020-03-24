@@ -1,0 +1,106 @@
+## --- vault vars --- / should move it to vault
+vault:
+  clouddb_password: mydbpassword
+  reporterdb_password: mydbpassword
+  file_license: mylicensekey
+  keystore_password: mysslkeystorepassword
+
+## --- vault vars end ---
+
+
+## --- common vars --- 
+cloudname: prod
+fs_path: "C:\\ProgramData\\file-storage"
+reporter_path: "C:\\ProgramData\\Experitest\\Reporter"
+
+clouddb_name: cloudserver
+clouddb_host: localhost
+clouddb_port: "5432"
+clouddb_user: postgres
+
+reporterdb_name: reporter
+reporterdb_host: localhost
+reporterdb_port: "5432"
+reporterdb_user: postgres
+
+backup_timeout: 18000
+backup_retry_max: 600
+backup_retry_delay: 30
+
+certificate_file_name: mydomain.com.keystore
+
+## --- cloudserver vars --- 
+cloud:
+  db_connection_string: "jdbc:postgresql://{{ clouddb_host }}:{{ clouddb_port }}/{{ clouddb_name }}"
+  db_password: "{{ clouddb_password }}"
+  xml_conf:
+    - "pairing-key": ""
+    - "single-port": "true"
+    - "use-secure-single-port": "true"
+    - "reverse-proxy-port": "443"
+    - "enable-latency-network-indication" : "false"
+    - "cloud-server-host" : "prod.example.local"      # your server domain name
+    - "cloud-backup-base-dir": "C:\\ProgramData\\cloud-server\\backups"
+    - "file-license": "{{ vault.file_license }}"
+    - "keystore-path": "conf/{{ certificate_file_name }}"
+    - "keystore-password": "{{ vault.keystore_password }}"
+
+  app_properties:
+    - "postgres.install.path": "C:/PostgreSQL/pg10"
+
+  license:
+    license_type: install4j
+
+  extra_java_options:
+    - "-Xmx3072m"
+
+
+## --- cloudagent vars --- 
+cloudagent:
+  extra_java_options:
+    - "-Xmx1024m"
+
+## --- appsigner vars --- 
+appsigner:
+  extra_java_options:
+    - "-Xmx1024m"
+
+## --- filestorage vars ---     
+filestorage:
+  extra_java_options:
+    - "-Xmx1024m"
+
+## --- regionproxy vars --- 
+regionproxy:
+  extra_java_options:
+    - "-Xmx1024m"
+  app_properties:
+    - "nginx-manager.tls-enabled": "true"
+    - "nginx-manager.proxy-port": "443"
+
+## --- nv server vars --- 
+nv:
+  server_port: 8888  
+  proxy_port: 9200
+  tunneling_port: 9700
+  uplink_eth: ""    # your uplink ethernet adapter e.g.- eth0
+  wifi_eth: ""      # your wifi ethernet adapter e.g.- eth1
+
+
+## --- reporter vars --- 
+reporter:
+  db_connection_string: "jdbc:postgresql://{{ reporterdb_host }}:{{ reporterdb_port }}/{{ reporterdb_name }}"
+  db_password: "{{ vault.reporterdb_password }}"
+
+  extra_java_options:
+    - "-Xmx1024m"
+
+  extra_application_properties:
+    - "manager.security.policy": cloud
+    - "manager.security.cloud.host": prod.example.local
+    - "manager.security.cloud.port": 443
+    - "manager.security.cloud.secure": "true"
+    - "spring.datasource.username" : "{{ reporterdb_user }}"
+   # - "server.ssl.enabled" : "true"
+   # - "server.ssl.key-store" : "config/{{ certificate_file_name }}"
+   # - "server.ssl.key-store-password" : "{{ vault.keystore_password }}"
