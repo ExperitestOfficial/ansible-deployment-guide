@@ -199,7 +199,7 @@ https://devops-artifacts.experitest.com/ansible/onpremise/prereq_linux_nginx.zip
 
 ### Install RegionProxy
 
-* On any machine which has internet connection, download regionalproxy dist-Linux-PROXY-{version}.zip installer file (validate the latest app_version build from cloudserver role from github)
+* On any machine which has internet connection, download regionalproxy dist-Linux-PROXY-{version}.zip installer file (validate the latest app_version build from regional proxy role from github)
 
 ```sh
 https://devops-artifacts.experitest.com/regional-nginx/linux/dist-Linux-PROXY-20.2.8326.zip
@@ -213,4 +213,37 @@ https://devops-artifacts.experitest.com/regional-nginx/linux/dist-Linux-PROXY-20
 
 ```sh
 ansible-playbook -i inventories/hosts.ini proxy.yml -e app_version=20.2.8326
+```
+
+## Install Application Signer role:
+
+### Prerequisites:
+
+* SSH service should be running on the appsigner machine and ssh user was added to sudoers file with NOPASSWD: ALL privileges.
+
+* Java role should be installed.
+
+### Requirements:
+
+- On any machine which has internet connection, download prereq_linux_common.zip file from below url <br>
+https://devops-artifacts.experitest.com/ansible/onpremise/prereq_linux_common.zip
+
+- Copy and unzip the downloaded prereq_linux_common.zip file to ansible master (control machine) shared/nfs folder (for e.g. /shared/experitest/prereq_linux_common)
+
+### Install Application Signer
+
+* On any machine which has internet connection, download app-signer dist-Linux-SIGNER-{version}.zip installer file (validate the latest app_version build from appsigner role from github)
+
+```sh
+https://devops-artifacts.experitest.com/app-signer/linux/dist-Linux-SIGNER-20.2.8326.zip
+```
+
+* Create app-signer/linux folder inside shared experitest folder for appsigner installers (for e.g. /shared/experitest/app-signer/linux)
+
+* Copy the app-signer dist-Linux-SERVER-{version}.zip file to the shared experitest folder inside app-signer/linux folder path on ansible control machine (for e.g. /shared/experitest/app-signer/linux/dist-Linux-SIGNER-20.2.8326.zip)
+
+* From ansible controller machine, update appsigner.yml playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/ and set the other required parameters.) and run the playbook with downloaded app_version.
+
+```sh
+ansible-playbook -i inventories/hosts.ini appsigner.yml -e app_version=20.2.8326
 ```
