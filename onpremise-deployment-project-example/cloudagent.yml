@@ -5,3 +5,6 @@
     - role: cloud-agent
       extra_xml_conf: "{{ cloudagent.xml_conf |  default({})  }}"
       extra_java_options: "{{ cloudagent.extra_java_options | default({}) }}"
+      extra_logback_properties: "{{ cloudagent.extra_logback_properties | default({}) }}"
+      extra_application_properties: "{{ cloudagent.extra_application_properties | default({}) }}"
+      extra_log4j_properties: "{{ cloudagent.extra_log4j_properties | default({}) }}"

@@ -5,4 +5,7 @@
     - role: selenium-agent
       enable_tunneling: "{{ selenium.enable_tunneling | default(True) }}"
       use_external_proxy: "{{ selenium.use_external_proxy | default(False) }}"
-      server_port: "{{ selenium.server_port | default(__server_port) }}"
+      extra_java_options: "{{ selenium.extra_java_options | default({}) }}"
+      extra_logback_properties: "{{ selenium.extra_logback_properties | default({}) }}"
+      extra_application_properties: "{{ selenium.extra_application_properties | default({}) }}"
+      extra_log4j_properties: "{{ selenium.extra_log4j_properties | default({}) }}"

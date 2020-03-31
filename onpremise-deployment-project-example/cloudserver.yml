@@ -6,7 +6,8 @@
       db_connection_string: "{{ cloudserver.db_connection_string }}"
       db_username: "{{ cloudserver.db_username }}"
       db_password: "{{ cloudserver.db_password }}"
-      license_type: "{{ cloudserver.license_type }}"
+      license_type: "{{ cloudserver.license.license_type }}"
+      license4j_file_content: "{{ cloud_license }}
       extra_xml_conf: "{{ cloudserver.extra_xml_conf }}"
       extra_application_properties: "{{ cloudserver.extra_application_properties | default({}) }}"
       extra_java_options: "{{ cloudserver.extra_java_options | default([]) }}"

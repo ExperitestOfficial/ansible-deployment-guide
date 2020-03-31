@@ -4,4 +4,5 @@
   roles:
     - role: file-storage
       extra_java_options: "{{ filestorage.extra_java_options | default([]) }}"
-      extra_application_properties: "{{ filestorage.app_properties | default({}) }}"
+      extra_application_properties: "{{ filestorage.extra_application_properties | default({}) }}"
+      extra_logback_properties:  "{{ filestorage.extra_logback_properties | default({}) }}"

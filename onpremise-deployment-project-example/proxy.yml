@@ -5,3 +5,5 @@
     - role: regional-proxy
       extra_java_options: "{{ proxy.extra_java_options | default([]) }}"
       extra_application_properties: "{{ proxy.extra_application_properties | default({}) }}"
+      extra_logback_properties: "{{ proxy.extra_logback_properties | default({}) }}"
+      

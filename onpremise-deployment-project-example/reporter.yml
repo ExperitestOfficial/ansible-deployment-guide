@@ -3,10 +3,8 @@
 
   roles:
     - role: reporter
-      app_version: "{{ reporter.app_version | default(__app_version) }}"
       db_connection_string: "{{ reporter.db_connection_string }}"
       db_username: "{{ reporter.db_username }}"
       db_password: "{{ reporter.db_password }}"
       extra_java_options: "{{ reporter.extra_java_options | default([]) }}"
       extra_application_properties: "{{ reporter.extra_application_properties | default({}) }}"
-      server_port: "{{ reporter.server_port | default('8084') }}"

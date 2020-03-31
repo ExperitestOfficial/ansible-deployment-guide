@@ -15,7 +15,9 @@ cloudserver:
     - "keystore-password": <keystore-password>
     - "pairing-key": <pairing-key>
     - "generate-video-for-report": "true"
-  license_type: license4j
+
+  license:
+    license_type: license4j
   # extra_application_properties:
   #   - <property_key>: <property_value>
   # extra_logback_properties:

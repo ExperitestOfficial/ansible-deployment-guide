@@ -3,3 +3,5 @@
   roles:
     - role: app-signer
       extra_java_options: "{{ appsigner.extra_java_options | default([]) }}"
+      extra_logback_properties: "{{ appsigner.extra_logback_properties | default({}) }}"
+      extra_application_properties: "{{ appsigner.extra_application_properties | default({}) }}"

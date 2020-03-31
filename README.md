@@ -86,16 +86,17 @@ git clone https://github.com/ExperitestOfficial/ansible-role-disk-space-validato
 
 * Copy the onpremise-deployment-project-example folder to the shared folder of ansible control machine (for e.g. /shared/experitest/onpremise-deployment-project-example)
 
-* Update the inventories/hosts.ini file (add your servers ip and credentials)
+* Update the inventories/cloud1/hosts.ini file (add your servers ip and credentials)
 
 * Provide the configuration details in inventories/group_vars/all.yml file or directly update to playbooks.
 
 * From onpremise-deployment-project-example folder, check the connections with the target machines.
 
 ```sh
-ansible-playbook -i inventories/hosts.ini check-connection.yml
+ansible-playbook -i inventories/cloud1/hosts.ini check-connection.yml
 ```
 
+* If there are multiple Experitest onpremise clouds, than create another folder inside inventories and perform the same configuration steps for new cloud hosts.ini file.
 
 ## Update Ansible Roles to another version:
 
@@ -139,7 +140,7 @@ https://devops-artifacts.experitest.com/java/linux/jre1.8.0_221-linux-x64.tar.gz
 * From ansible controller machine, update java8 playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/) and run the playbook.
 
 ```sh
-ansible-playbook -i inventories/hosts.ini java8.yml
+ansible-playbook -i inventories/cloud1/hosts.ini java8.yml
 ```
 
 ## Install CloudServer role:
@@ -174,7 +175,7 @@ https://devops-artifacts.experitest.com/cloud-server/linux/dist-Linux-SERVER-20.
 * From ansible controller machine, update cloudserver.yml playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/ and set the other required parameters.) and run the playbook with downloaded app_version.
 
 ```sh
-ansible-playbook -i inventories/hosts.ini cloudserver.yml -e app_version=20.2.8326
+ansible-playbook -i inventories/cloud1/hosts.ini cloudserver.yml -e app_version=20.2.8326
 ```
 
 ## Install Region Proxy role:
@@ -212,7 +213,7 @@ https://devops-artifacts.experitest.com/regional-nginx/linux/dist-Linux-PROXY-20
 * From ansible controller machine, update proxy.yml playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/ and set the other required parameters.) and run the playbook with downloaded app_version.
 
 ```sh
-ansible-playbook -i inventories/hosts.ini proxy.yml -e app_version=20.2.8326
+ansible-playbook -i inventories/cloud1/hosts.ini proxy.yml -e app_version=20.2.8326
 ```
 
 ## Install Application Signer role:
@@ -245,7 +246,7 @@ https://devops-artifacts.experitest.com/app-signer/linux/dist-Linux-SIGNER-20.2.
 * From ansible controller machine, update appsigner.yml playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/ and set the other required parameters.) and run the playbook with downloaded app_version.
 
 ```sh
-ansible-playbook -i inventories/hosts.ini appsigner.yml -e app_version=20.2.8326
+ansible-playbook -i inventories/cloud1/hosts.ini appsigner.yml -e app_version=20.2.8326
 ```
 
 ## Install File Storage role:
@@ -278,5 +279,5 @@ https://devops-artifacts.experitest.com/file-storage/linux/dist-Linux-STORAGE-20
 * From ansible controller machine, update filestorage.yml playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/ and set the other required parameters.) and run the playbook with downloaded app_version.
 
 ```sh
-ansible-playbook -i inventories/hosts.ini filestorage.yml -e app_version=20.2.8326
+ansible-playbook -i inventories/cloud1/hosts.ini filestorage.yml -e app_version=20.2.8326
 ```
