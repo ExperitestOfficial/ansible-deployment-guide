@@ -47,7 +47,7 @@ sh sshpass-install.sh
 * check the ansible version <br>
 `ansible --version`
 
-* [genereate \ add ssh key](https://github.com/ExperitestOfficial/ansible-deployment-guide/blob/master/prerequisites/SSH.md)
+* [genereate \ add ssh key](SSH.md)
 
 
 ## Flow Diagram:
@@ -64,7 +64,7 @@ git clone https://github.com/ExperitestOfficial/ansible-deployment-guide.git -b 
 
 * Go to roles folder under onpremise-deployment-project-example
 ```sh
-cd ./ansible-deployment-guide/onpremise-deploy-without-internet/roles
+cd ./ansible-deployment-guide/onpremise-deployment-project-example/roles
 ```
 
 * Download all the following Experitest Official roles to the roles folder using git (change to required version branch):
