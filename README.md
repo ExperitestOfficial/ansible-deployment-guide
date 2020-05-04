@@ -27,6 +27,7 @@ https://devops-artifacts.experitest.com/ansible/onpremise/experitest-ansible-off
 
 # for example
 cd /shared/experitest/experitest-ansible-offline-installation
+
 ```
 
 ```sh
@@ -62,29 +63,21 @@ sh sshpass-install.sh
 git clone https://github.com/ExperitestOfficial/ansible-deployment-guide.git -b onpremise-deployment-project-example
 ```
 
-* Go to roles folder under onpremise-deployment-project-example
-```sh
-cd ./ansible-deployment-guide/onpremise-deployment-project-example/roles
-```
-
-* Download all the following Experitest Official roles to the roles folder using git (change to required version branch):
-
-```sh
-git clone https://github.com/ExperitestOfficial/ansible-role-cloud-server.git cloud-server -b 20.1
-git clone https://github.com/ExperitestOfficial/ansible-role-app-signer.git app-signer -b 20.1
-git clone https://github.com/ExperitestOfficial/ansible-role-file-storage.git file-storage -b 20.1
-git clone https://github.com/ExperitestOfficial/ansible-role-regional-proxy.git regional-proxy -b 20.1
-git clone https://github.com/ExperitestOfficial/ansible-role-cloud-agent.git cloud-agent -b 20.1
-git clone https://github.com/ExperitestOfficial/ansible-role-reporter.git reporter -b 20.1
-git clone https://github.com/ExperitestOfficial/ansible-role-cloud-nv.git cloud-nv -b 20.1
-git clone https://github.com/ExperitestOfficial/ansible-role-selenium-agent.git selenium-agent -b 20.1
-git clone https://github.com/ExperitestOfficial/ansible-role-cloud-emulator-host.git cloud-emulator-host -b 20.1
-git clone https://github.com/ExperitestOfficial/ansible-role-audioservice-cloudagent.git audioservice-cloudagent -b 20.1
-git clone https://github.com/ExperitestOfficial/ansible-role-java8.git java8 -b 20.1
-git clone https://github.com/ExperitestOfficial/ansible-role-disk-space-validator.git disk-space-validator
-```
-
 * Copy the onpremise-deployment-project-example folder to the shared folder of ansible control machine (for e.g. /shared/experitest/onpremise-deployment-project-example)
+
+### From mac/linux client machines which has internet connections
+* run the [project-setup.sh](project-setup.sh) script under ansible-deployment-guide folder to install roles and download prerequisites and artifacts to shared folder. It will prompt you to provide shared folder path and release version.  (for e.g. shared_path /shared/experitest and release_version 20.2)
+
+```sh
+/bin/sh project-setup.sh
+```
+
+### From windows client machines which has internet connections
+* run the [project-setup.bat](project-setup.bat) script under ansible-deployment-guide folder to install roles and download prerequisites and artifacts to shared folder. It will prompt you to provide shared folder path and release version. (for e.g. shared_path \\\192.168.0.11\shared\experitest and release_version 20.2)
+
+```sh
+project-setup.bat
+```
 
 * Update the inventories/cloud1/hosts.ini file (add your servers ip and credentials)
 
@@ -100,30 +93,17 @@ ansible-playbook -i inventories/cloud1/hosts.ini check-connection.yml
 
 ## Update Ansible Roles to another version:
 
-* From machine which has internet connection and git client installed, create roles folder.
+* From mac/linux client machines which has internet connection and git client installed, run the project-setup.sh script.
 ```sh
-mkdir roles
-cd roles
+/bin/sh project-setup.sh
 ```
 
-* Download all the following Experitest Official roles to the roles folder using git (change to required version branch):
-
+* From windows client machines which has internet connection and git client installed, run the project-setup.bat script.
 ```sh
-git clone https://github.com/ExperitestOfficial/ansible-role-cloud-server.git cloud-server -b 20.2
-git clone https://github.com/ExperitestOfficial/ansible-role-app-signer.git app-signer -b 20.2
-git clone https://github.com/ExperitestOfficial/ansible-role-file-storage.git file-storage -b 20.2
-git clone https://github.com/ExperitestOfficial/ansible-role-regional-proxy.git regional-proxy -b 20.2
-git clone https://github.com/ExperitestOfficial/ansible-role-cloud-agent.git cloud-agent -b 20.2
-git clone https://github.com/ExperitestOfficial/ansible-role-reporter.git reporter -b 20.2
-git clone https://github.com/ExperitestOfficial/ansible-role-cloud-nv.git cloud-nv -b 20.2
-git clone https://github.com/ExperitestOfficial/ansible-role-selenium-agent.git selenium-agent -b 20.2
-git clone https://github.com/ExperitestOfficial/ansible-role-cloud-emulator-host.git cloud-emulator-host -b 20.2
-git clone https://github.com/ExperitestOfficial/ansible-role-audioservice-cloudagent.git audioservice-cloudagent -b 20.2
-git clone https://github.com/ExperitestOfficial/ansible-role-java8.git java8 -b 20.2
-git clone https://github.com/ExperitestOfficial/ansible-role-disk-space-validator.git disk-space-validator
+project-setup.bat
 ```
 
-* Copy the new roles folder to ansible controller shared drive and replace it with existing roles folder under onpremise-deployment-project-example folder.
+* The project setup script will prompt to enter shared folder path and release version. It will remove old roles and copy the latest roles of that version to shared folder path inside "onpremise-deployment-project-example/roles" folder.
 
 
 ## Install Java role:
