@@ -1,5 +1,5 @@
 
-- hosts: regional-proxies
+- hosts: region-proxies
 
   roles:
     - role: regional-proxy
