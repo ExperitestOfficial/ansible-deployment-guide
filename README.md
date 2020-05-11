@@ -107,15 +107,6 @@ project-setup.bat
 
 
 ## Install Java role:
-* From machine which has internet connection, download java8 offline installer.
-
-```sh
-https://devops-artifacts.experitest.com/java/linux/jre1.8.0_221-linux-x64.tar.gz
-```
-
-* Create java/linux folder inside shared experitest folder for java installers (for e.g. /shared/experitest/java/linux)
-
-* Copy the jre1.8.0_221-linux-x64.tar.gz file to the shared experitest folder inside java/linux/ folder path on ansible control machine (for e.g. /shared/experitest/java/linux/jre1.8.0_221-linux-x64.tar.gz)
 
 * From ansible controller machine, update java8 playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/) and run the playbook.
 
@@ -133,29 +124,12 @@ ansible-playbook -i inventories/cloud1/hosts.ini java8.yml
 
 * Java role should be installed.
 
-### Requirements:
-
-- On any machine which has internet connection, download prereq_linux_common.zip file from below url <br>
-https://devops-artifacts.experitest.com/ansible/onpremise/prereq_linux_common.zip
-
-- Copy and unzip the downloaded prereq_linux_common.zip file to ansible master (control machine) shared/nfs folder (for e.g. /shared/experitest/prereq_linux_common)
-
 ### Install CloudServer
 
-* On any machine which has internet connection, download cloud-server dist-Linux-SERVER-{version}.zip installer file (validate the latest app_version build from cloudserver role from github)
+* From ansible controller machine, update cloudserver.yml playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/ and set the other required parameters.) and run the playbook.
 
 ```sh
-https://devops-artifacts.experitest.com/cloud-server/linux/dist-Linux-SERVER-20.2.8326.zip
-```
-
-* Create cloud-server/linux folder inside shared experitest folder for cloudserver installers (for e.g. /shared/experitest/cloud-server/linux)
-
-* Copy the cloud-server dist-Linux-SERVER-{version}.zip file to the shared experitest folder inside cloud-server/linux folder path on ansible control machine (for e.g. /shared/experitest/cloud-server/linux/dist-Linux-SERVER-20.2.8326.zip)
-
-* From ansible controller machine, update cloudserver.yml playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/ and set the other required parameters.) and run the playbook with downloaded app_version.
-
-```sh
-ansible-playbook -i inventories/cloud1/hosts.ini cloudserver.yml -e app_version=20.2.8326
+ansible-playbook -i inventories/cloud1/hosts.ini cloudserver.yml
 ```
 
 ## Install Region Proxy role:
@@ -166,34 +140,12 @@ ansible-playbook -i inventories/cloud1/hosts.ini cloudserver.yml -e app_version=
 
 * Java role should be installed.
 
-### Requirements:
-
-- On any machine which has internet connection, download prereq_linux_common.zip file from below url <br>
-https://devops-artifacts.experitest.com/ansible/onpremise/prereq_linux_common.zip
-
-- Copy and unzip the downloaded prereq_linux_common.zip file to ansible master (control machine) shared/nfs folder (for e.g. /shared/experitest/prereq_linux_common)
-
-- On any machine which has internet connection, download prereq_linux_nginx.zip file from below url <br>
-https://devops-artifacts.experitest.com/ansible/onpremise/prereq_linux_nginx.zip
-
-- Copy and unzip the downloaded prereq_linux_nginx.zip file to ansible master (control machine) shared/nfs folder (for e.g. /shared/experitest/prereq_linux_nginx)
-
 ### Install RegionProxy
 
-* On any machine which has internet connection, download regionalproxy dist-Linux-PROXY-{version}.zip installer file (validate the latest app_version build from regional proxy role from github)
+* From ansible controller machine, update proxy.yml playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/ and set the other required parameters.) and run the playbook.
 
 ```sh
-https://devops-artifacts.experitest.com/regional-nginx/linux/dist-Linux-PROXY-20.2.8326.zip
-```
-
-* Create regional-nginx/linux folder inside shared experitest folder for regionproxy installers (for e.g. /shared/experitest/regional-nginx/linux)
-
-* Copy the regionproxy dist-Linux-PROXY-{version}.zip file to the shared experitest folder inside regional-nginx/linux folder path on ansible control machine (for e.g. /shared/experitest/regional-nginx/linux/dist-Linux-PROXY-20.2.8326.zip)
-
-* From ansible controller machine, update proxy.yml playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/ and set the other required parameters.) and run the playbook with downloaded app_version.
-
-```sh
-ansible-playbook -i inventories/cloud1/hosts.ini proxy.yml -e app_version=20.2.8326
+ansible-playbook -i inventories/cloud1/hosts.ini proxy.yml
 ```
 
 ## Install Application Signer role:
@@ -204,29 +156,12 @@ ansible-playbook -i inventories/cloud1/hosts.ini proxy.yml -e app_version=20.2.8
 
 * Java role should be installed.
 
-### Requirements:
-
-- On any machine which has internet connection, download prereq_linux_common.zip file from below url <br>
-https://devops-artifacts.experitest.com/ansible/onpremise/prereq_linux_common.zip
-
-- Copy and unzip the downloaded prereq_linux_common.zip file to ansible master (control machine) shared/nfs folder (for e.g. /shared/experitest/prereq_linux_common)
-
 ### Install Application Signer
 
-* On any machine which has internet connection, download app-signer dist-Linux-SIGNER-{version}.zip installer file (validate the latest app_version build from appsigner role from github)
+* From ansible controller machine, update appsigner.yml playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/ and set the other required parameters.) and run the playbook.
 
 ```sh
-https://devops-artifacts.experitest.com/app-signer/linux/dist-Linux-SIGNER-20.2.8326.zip
-```
-
-* Create app-signer/linux folder inside shared experitest folder for appsigner installers (for e.g. /shared/experitest/app-signer/linux)
-
-* Copy the app-signer dist-Linux-SIGNER-{version}.zip file to the shared experitest folder inside app-signer/linux folder path on ansible control machine (for e.g. /shared/experitest/app-signer/linux/dist-Linux-SIGNER-20.2.8326.zip)
-
-* From ansible controller machine, update appsigner.yml playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/ and set the other required parameters.) and run the playbook with downloaded app_version.
-
-```sh
-ansible-playbook -i inventories/cloud1/hosts.ini appsigner.yml -e app_version=20.2.8326
+ansible-playbook -i inventories/cloud1/hosts.ini appsigner.yml
 ```
 
 ## Install File Storage role:
@@ -237,27 +172,10 @@ ansible-playbook -i inventories/cloud1/hosts.ini appsigner.yml -e app_version=20
 
 * Java role should be installed.
 
-### Requirements:
-
-- On any machine which has internet connection, download prereq_linux_common.zip file from below url <br>
-https://devops-artifacts.experitest.com/ansible/onpremise/prereq_linux_common.zip
-
-- Copy and unzip the downloaded prereq_linux_common.zip file to ansible master (control machine) shared/nfs folder (for e.g. /shared/experitest/prereq_linux_common)
-
 ### Install File Storage
 
-* On any machine which has internet connection, download file-storage dist-Linux-STORAGE-{version}.zip installer file (validate the latest app_version build from filestorage role from github)
+* From ansible controller machine, update filestorage.yml playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/ and set the other required parameters.) and run the playbook.
 
 ```sh
-https://devops-artifacts.experitest.com/file-storage/linux/dist-Linux-STORAGE-20.2.8326.zip
-```
-
-* Create file-storage/linux folder inside shared experitest folder for filestorage installers (for e.g. /shared/experitest/file-storage/linux)
-
-* Copy the file-storage dist-Linux-STORAGE-{version}.zip file to the shared experitest folder inside file-storage/linux folder path on ansible control machine (for e.g. /shared/experitest/file-storage/linux/dist-Linux-STORAGE-20.2.8326.zip)
-
-* From ansible controller machine, update filestorage.yml playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/ and set the other required parameters.) and run the playbook with downloaded app_version.
-
-```sh
-ansible-playbook -i inventories/cloud1/hosts.ini filestorage.yml -e app_version=20.2.8326
+ansible-playbook -i inventories/cloud1/hosts.ini filestorage.yml
 ```
