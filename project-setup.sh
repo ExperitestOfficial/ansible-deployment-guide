@@ -37,17 +37,17 @@ rm -rf $roles_path/*
 
 echo "installing roles for $release_ver version ..."
 
-git clone https://github.com/ExperitestOfficial/ansible-role-cloud-server.git $roles_path/cloud-server -b $release_ver
-git clone https://github.com/ExperitestOfficial/ansible-role-app-signer.git $roles_path/app-signer -b $release_ver
-git clone https://github.com/ExperitestOfficial/ansible-role-file-storage.git $roles_path/file-storage -b $release_ver
-git clone https://github.com/ExperitestOfficial/ansible-role-regional-proxy.git $roles_path/regional-proxy -b $release_ver
-git clone https://github.com/ExperitestOfficial/ansible-role-cloud-agent.git $roles_path/cloud-agent -b $release_ver
-git clone https://github.com/ExperitestOfficial/ansible-role-reporter.git $roles_path/reporter -b $release_ver
-git clone https://github.com/ExperitestOfficial/ansible-role-cloud-nv.git $roles_path/cloud-nv -b $release_ver
-git clone https://github.com/ExperitestOfficial/ansible-role-selenium-agent.git $roles_path/selenium-agent -b $release_ver
-git clone https://github.com/ExperitestOfficial/ansible-role-cloud-emulator-host.git $roles_path/cloud-emulator-host -b $release_ver
-git clone https://github.com/ExperitestOfficial/ansible-role-audioservice-cloudagent.git $roles_path/audioservice-cloudagent -b $release_ver
-git clone https://github.com/ExperitestOfficial/ansible-role-java8.git $roles_path/java8 -b $release_ver
+git clone https://github.com/ExperitestOfficial/ansible-role-cloud-server.git $roles_path/cloud-server -b $release_ver || exit $?
+git clone https://github.com/ExperitestOfficial/ansible-role-app-signer.git $roles_path/app-signer -b $release_ver || exit $?
+git clone https://github.com/ExperitestOfficial/ansible-role-file-storage.git $roles_path/file-storage -b $release_ver || exit $?
+git clone https://github.com/ExperitestOfficial/ansible-role-regional-proxy.git $roles_path/regional-proxy -b $release_ver || exit $?
+git clone https://github.com/ExperitestOfficial/ansible-role-cloud-agent.git $roles_path/cloud-agent -b $release_ver || exit $?
+git clone https://github.com/ExperitestOfficial/ansible-role-reporter.git $roles_path/reporter -b $release_ver || exit $?
+git clone https://github.com/ExperitestOfficial/ansible-role-cloud-nv.git $roles_path/cloud-nv -b $release_ver || exit $?
+git clone https://github.com/ExperitestOfficial/ansible-role-selenium-agent.git $roles_path/selenium-agent -b $release_ver || exit $?
+git clone https://github.com/ExperitestOfficial/ansible-role-cloud-emulator-host.git $roles_path/cloud-emulator-host -b $release_ver || exit $?
+git clone https://github.com/ExperitestOfficial/ansible-role-audioservice-cloudagent.git $roles_path/audioservice-cloudagent -b $release_ver || exit $?
+git clone https://github.com/ExperitestOfficial/ansible-role-java8.git $roles_path/java8 -b $release_ver || exit $?
 git clone https://github.com/ExperitestOfficial/ansible-role-disk-space-validator.git $roles_path/disk-space-validator
 
 
