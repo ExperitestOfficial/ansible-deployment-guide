@@ -179,7 +179,26 @@ ansible-playbook -i inventories/cloud1/hosts.ini appsigner.yml
 ```sh
 ansible-playbook -i inventories/cloud1/hosts.ini filestorage.yml
 ```
-## Run installation in parallel:
+
+## Install Reporter role:
+
+### Prerequisites:
+
+* SSH service should be running on the reporter linux machine and ssh user was added to sudoers file with NOPASSWD: ALL privileges.
+
+* Postgresql Server is not a part of ansible deployment, it should be pre-installed and configured on reporter machine.
+
+* Java role should be installed.
+
+### Install Reporter
+
+* From ansible controller machine, update reporter.yml playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/ and set the other required parameters.) and run the playbook.
+
+```sh
+ansible-playbook -i inventories/cloud1/hosts.ini reporter.yml
+```
+
+## Run all installation in parallel:
 
 * To install all the components in parallel, execute the shell script [run-all.sh](onpremise-deployment-project-example/run-all.sh) with inventory name from project folder.
 
