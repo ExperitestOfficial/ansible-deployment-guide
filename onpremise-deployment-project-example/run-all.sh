@@ -46,9 +46,8 @@ function main() {
     echo -e "\n---- Printing results ---- \n"
 
     ## execute printresults function
-    for component in ${allComponents[*]}; do
-        printresults $component
-    done
+    printresults
+
   
 }
 
@@ -80,25 +79,28 @@ function installall() {
 
 
 function printresults() {
-    RED='\033[0;31m'
-    BLUE='\033[0;34m'
-    GREEN='\033[0;32m'
-    GRAY='\033[0;90m' 
-    NC='\033[0m' # No Color
 
-    if grep -q 'skipping: no hosts matched' ./log/$INVENTORY_NAME/$TIMESTAMP/$1.log;
-    then
-        echo -e "${GRAY}$1 no hosts${NC}";
-    elif grep -q failed=1 ./log/$INVENTORY_NAME/$TIMESTAMP/$1.log;
-    then
-        echo -e "${RED}$1 failed${NC}";
-    elif grep -q unreachable=1 ./log/$INVENTORY_NAME/$TIMESTAMP/$1.log;
-    then
-        echo -e "${BLUE}$1 unreachable${NC}";
-    else
-        echo -e "${GREEN}$1 passed${NC}";
-    fi
+    alllogs=($(find ./log/$INVENTORY_NAME/$TIMESTAMP -type f -name '*.log'))
+
+    for logfile in ${alllogs[*]}; do
+
+        echo $logfile
+
+        if grep -q 'skipping: no hosts matched' $logfile; then
+          grep -B 1 "skipping: no hosts matched" $logfile
+        elif grep -q 'ERROR! the playbook' $logfile; then
+          grep 'ERROR! the playbook' $logfile
+        else
+          grep -A 500 "PLAY RECAP" $logfile
+        fi
+
+        echo -e "--------------------------------------------------------------------------------\n"
+    done
+
+    echo -e "for more details check the logs from path: ./log/$INVENTORY_NAME/$TIMESTAMP "
+
 }
+
 
 
 # execute main function
