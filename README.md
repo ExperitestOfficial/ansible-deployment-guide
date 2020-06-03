@@ -93,7 +93,7 @@ ansible-playbook -i inventories/cloud1/hosts.ini check-connection.yml
 
 ## Update Ansible Roles to another version:
 
-* From mac/linux client machines which has internet connection and git client installed, run the project-setup.sh script.
+* From mac/linux client machines which has internet connection and git client installed, run the [project-setup.sh](project-setup.sh) script.
 ```sh
 /bin/sh project-setup.sh
 ```
@@ -178,4 +178,12 @@ ansible-playbook -i inventories/cloud1/hosts.ini appsigner.yml
 
 ```sh
 ansible-playbook -i inventories/cloud1/hosts.ini filestorage.yml
+```
+## Run installation in parallel:
+
+* To install all the components in parallel, execute the shell script [run-all.sh](onpremise-deployment-project-example/run-all.sh) with inventory name from project folder.
+
+```sh
+# example
+sh run-all.sh cloud1
 ```

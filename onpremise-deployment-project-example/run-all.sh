@@ -4,18 +4,6 @@
 # This script will install all the experitest component in parallel
 
 
-INVENTORY_NAME=$1
-
-if [ -z "$INVENTORY_NAME" ]; then
-  echo "\$INVENTORY_NAME is empty, please provide inventory name with script"
-  exit
-elif [ ! -f "inventories/$INVENTORY_NAME/hosts.ini" ]; then
-  echo "inventory file not found in inventories/$INVENTORY_NAME/hosts.ini path, check if inventory name is correct and file exists"
-  exit
-else
-  echo "will update inventory $INVENTORY_NAME"
-fi
-
 ## Set component to install - Comment the not required component with #
 allComponents=(
   cloudserver
@@ -29,6 +17,18 @@ allComponents=(
 # cloudehm
 # audioservice-cloudgent
 )
+
+INVENTORY_NAME=$1
+
+if [ -z "$INVENTORY_NAME" ]; then
+  echo "\$INVENTORY_NAME is empty, please provide inventory name with script"
+  exit
+elif [ ! -f "inventories/$INVENTORY_NAME/hosts.ini" ]; then
+  echo "inventory file not found in inventories/$INVENTORY_NAME/hosts.ini path, check if inventory name is correct and file exists"
+  exit
+else
+  echo "will update inventory $INVENTORY_NAME"
+fi
 
 
 function main() {
