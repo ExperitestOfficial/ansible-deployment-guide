@@ -137,6 +137,27 @@ app_ver=$(cat $roles_path/regional-proxy/defaults/main.yml | grep __app_version 
 download_url=https://devops-artifacts.experitest.com/$role/linux/dist-Linux-$component-$app_ver.zip
 cd $download_path && { curl -O $download_url ; cd -; }
 
+# download reporter
+role=reporter
+component=REPORTER
+download_path=$shared_path/$role/linux
+mkdir -p $shared_path/$role/linux
+
+app_ver=$(cat $roles_path/$role/defaults/main.yml | grep __app_version | awk '{print $2}')
+download_url=https://devops-artifacts.experitest.com/$role/windows/dist-Windows-$component-$app_ver.zip
+cd $download_path && { curl -O $download_url ; cd -; }
+
+# download cloud agent
+role=cloud-agent
+component=AGENT
+download_path=$shared_path/$role/linux
+mkdir -p $shared_path/$role/linux
+
+app_ver=$(cat $roles_path/$role/defaults/main.yml | grep __app_version | awk '{print $2}')
+download_url=https://devops-artifacts.experitest.com/$role/osx/dist-Mac-$component-$app_ver.zip
+cd $download_path && { curl -O $download_url ; cd -; }
+
+
 }
 
 # call main function
