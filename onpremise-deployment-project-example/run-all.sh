@@ -90,8 +90,12 @@ function printresults() {
           grep -B 1 "skipping: no hosts matched" $logfile
         elif grep -q 'ERROR! the playbook' $logfile; then
           grep 'ERROR! the playbook' $logfile
-        else
+        elif grep -q 'PLAY RECAP' $logfile; then
           grep -A 500 "PLAY RECAP" $logfile
+        else
+          echo "------------------------------------------"
+          tail -5 $logfile
+          echo -e "\nCheck the logs file for details"
         fi
 
         echo -e "--------------------------------------------------------------------------------\n"
