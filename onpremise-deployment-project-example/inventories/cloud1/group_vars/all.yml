@@ -3,7 +3,7 @@ deployment_mode: offline
 
 
 cloudserver:
-  db_connection_string: jdbc:postgresql:/<IP>:5432/<DBname>
+  db_connection_string: jdbc:postgresql://<IP>:5432/<DBname>
   db_username: <postgres_username>
   db_password: <postgres_password>
   extra_xml_conf:
@@ -40,7 +40,7 @@ cloudagent: {} # need to remove {} in case using at least 1 property
 
   
 reporter:
-  db_connection_string: jdbc:postgresql:/<IP>:5432/<DBname>
+  db_connection_string: jdbc:postgresql://<IP>:5432/<DBname>
   db_username: <postgres_username>
   db_password: <postgres_password>
   extra_application_properties:
