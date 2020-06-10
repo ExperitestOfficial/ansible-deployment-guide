@@ -77,7 +77,6 @@ function installall() {
 
 }
 
-
 function printresults() {
 
     alllogs=($(find ./log/$INVENTORY_NAME/$TIMESTAMP -type f -name '*.log'))
@@ -105,8 +104,6 @@ function printresults() {
     echo -e "for more details check the logs from path: ./log/$INVENTORY_NAME/$TIMESTAMP "
 
 }
-
-
 
 # execute main function
 main
