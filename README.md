@@ -221,7 +221,7 @@ ansible-playbook -i inventories/cloud1/hosts.ini cloudagent.yml
 * To install all the components in parallel, execute the shell script [run-all.sh](onpremise-deployment-project-example/run-all.sh) with inventory name from project folder.
 
 ```sh
-# run the dos2unix tool first time to convert file to Unix line endings (line feed)
+# for linux only - run the dos2unix tool first time to convert file to Unix line endings (line feed)
 dos2unix run-all.sh
 
 # example
