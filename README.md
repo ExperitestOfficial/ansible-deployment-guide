@@ -35,12 +35,12 @@ cd /shared/experitest/experitest-ansible-offline-installation
 # for centos / rhel
 sudo pip3 install ./linux/pip3/ansible-offline/*
 sudo pip3 install ./linux/pip3/pywinrm-offline/*
-sudo yum localinstall -y ./linux/sshpass/*
+sudo yum localinstall -y ./linux/extras/*
 
 # for mac
 sudo pip3 install ./mac/pip3/ansible-offline/*
 sudo pip3 install ./mac/pip3/pywinrm-offline/*
-cd  ./mac/sshpass
+cd  ./mac/extras
 sh sshpass-install.sh
 
 ```
@@ -221,6 +221,9 @@ ansible-playbook -i inventories/cloud1/hosts.ini cloudagent.yml
 * To install all the components in parallel, execute the shell script [run-all.sh](onpremise-deployment-project-example/run-all.sh) with inventory name from project folder.
 
 ```sh
+# run the dos2unix tool first time to convert file to Unix line endings (line feed)
+dos2unix run-all.sh
+
 # example
 sh run-all.sh cloud1
 ```
