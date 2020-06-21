@@ -97,7 +97,7 @@ download_artifacts()
 
 echo "downloading artifacts for linux platform..."
 
-# download cloud server
+# download cloud server linux
 role=cloud-server
 component=SERVER
 download_path=$shared_path/$role/linux
@@ -107,7 +107,7 @@ app_ver=$(cat $roles_path/$role/defaults/main.yml | grep __app_version | awk '{p
 download_url=https://devops-artifacts.experitest.com/$role/linux/dist-Linux-$component-$app_ver.zip
 cd $download_path && { curl -O $download_url ; cd -; }
 
-# download app signer
+# download app signer linux
 role=app-signer
 component=SIGNER
 download_path=$shared_path/$role/linux
@@ -117,7 +117,7 @@ app_ver=$(cat $roles_path/$role/defaults/main.yml | grep __app_version | awk '{p
 download_url=https://devops-artifacts.experitest.com/$role/linux/dist-Linux-$component-$app_ver.zip
 cd $download_path && { curl -O $download_url ; cd -; }
 
-# download file storage
+# download file storage linux
 role=file-storage
 component=STORAGE
 download_path=$shared_path/$role/linux
@@ -127,7 +127,7 @@ app_ver=$(cat $roles_path/$role/defaults/main.yml | grep __app_version | awk '{p
 download_url=https://devops-artifacts.experitest.com/$role/linux/dist-Linux-$component-$app_ver.zip
 cd $download_path && { curl -O $download_url ; cd -; }
 
-# download region proxy
+# download region proxy linux
 role=regional-nginx
 component=PROXY
 download_path=$shared_path/$role/linux
@@ -137,7 +137,7 @@ app_ver=$(cat $roles_path/regional-proxy/defaults/main.yml | grep __app_version 
 download_url=https://devops-artifacts.experitest.com/$role/linux/dist-Linux-$component-$app_ver.zip
 cd $download_path && { curl -O $download_url ; cd -; }
 
-# download reporter
+# download reporter linux
 role=reporter
 component=REPORTER
 download_path=$shared_path/$role/windows
@@ -147,7 +147,7 @@ app_ver=$(cat $roles_path/$role/defaults/main.yml | grep __app_version | awk '{p
 download_url=https://devops-artifacts.experitest.com/$role/windows/dist-Windows-$component-$app_ver.zip
 cd $download_path && { curl -O $download_url ; cd -; }
 
-# download cloud agent
+# download cloud agent osx
 role=cloud-agent
 component=AGENT
 download_path=$shared_path/$role/osx
@@ -157,6 +157,25 @@ app_ver=$(cat $roles_path/$role/defaults/main.yml | grep __app_version | awk '{p
 download_url=https://devops-artifacts.experitest.com/$role/osx/dist-Mac-$component-$app_ver.zip
 cd $download_path && { curl -O $download_url ; cd -; }
 
+# download selenium agent osx
+role=selenium-agent
+component=selenium_agent_macos
+download_path=$shared_path/$role/osx
+mkdir -p $shared_path/$role/osx
+
+app_ver=$(cat $roles_path/$role/defaults/main.yml | grep __app_version | awk '{print $2}')
+download_url=https://devops-artifacts.experitest.com/$role/osx/$component_$app_ver.zip
+cd $download_path && { curl -O $download_url ; cd -; }
+
+# download selenium agent windows
+role=selenium-agent
+component=selenium_agent_windows-x64
+download_path=$shared_path/$role/windows
+mkdir -p $shared_path/$role/windows
+
+app_ver=$(cat $roles_path/$role/defaults/main.yml | grep __app_version | awk '{print $2}')
+download_url=https://devops-artifacts.experitest.com/$role/windows/$component_$app_ver.exe
+cd $download_path && { curl -O $download_url ; cd -; }
 
 }
 
