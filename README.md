@@ -222,7 +222,7 @@ ansible-playbook -i inventories/cloud1/hosts.ini cloudagent.yml
 
 * For Mac Selenium Agent - SSH service should be running on the selenium agent mac machines and ssh user should added to sudoers file with NOPASSWD: ALL privileges.
 
-* For Windows Selenium Agent - Winrm Service should be running and firewall ports 5985-5986 are open on the selenium agent windows machines. To install and configure winrm, copy the [prerequistes/windows](./prerequisites/windows) folder to selenium agent machine and run [Install-WinRM.ps1](./prerequisites/windows/Install-WinRM.ps1) script from powershell as administrator.
+* For Windows Selenium Agent - Winrm Service should be running and firewall ports 5985-5986 are open on the selenium agent windows machines. To install and configure winrm, copy the [prerequistes/windows](./prerequisites/windows) folder to selenium agent machine and run powershell as an Administrator and execute [Install-WinRM.ps1](./prerequisites/windows/Install-WinRM.ps1) script.
 
 ### Install Selenium Agent
 
