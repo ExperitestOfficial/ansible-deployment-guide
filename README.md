@@ -48,7 +48,7 @@ sh sshpass-install.sh
 * check the ansible version <br>
 `ansible --version`
 
-* [genereate \ add ssh key](SSH.md)
+* [genereate \ add ssh key](prerequisites/linux/SSH.md)
 
 
 ## Flow Diagram:
@@ -215,6 +215,23 @@ ansible-playbook -i inventories/cloud1/hosts.ini reporter.yml
 ```sh
 ansible-playbook -i inventories/cloud1/hosts.ini cloudagent.yml
 ```
+
+## Install Selenium Agent role:
+
+### Prerequisites:
+
+* For Mac Selenium Agent - SSH service should be running on the selenium agent mac machines and ssh user should added to sudoers file with NOPASSWD: ALL privileges.
+
+* For Windows Selenium Agent - Winrm Service should be running and firewall ports 5985-5986 are open on the selenium agent windows machines. To install and configure winrm, copy the [prerequistes/windows](./prerequisites/windows) folder to selenium agent machine and run [Install-WinRM.ps1](./prerequisites/windows/Install-WinRM.ps1) script from powershell as administrator.
+
+### Install Selenium Agent
+
+* From ansible controller machine, update seleniumagent.yml playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/ and set the other required parameters.) and run the playbook.
+
+```sh
+ansible-playbook -i inventories/cloud1/hosts.ini seleniumagent.yml
+```
+
 
 ## Run all installation in parallel:
 
