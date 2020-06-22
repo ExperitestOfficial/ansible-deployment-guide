@@ -76,7 +76,7 @@ mkdir -p $shared_path
 download_url=https://devops-artifacts.experitest.com/ansible/onpremise/prereq_linux_nginx.zip
 cd $download_path && { curl -O $download_url ; unzip -n prereq_linux_nginx.zip ; cd -; }
 
-# download java8
+# download java8 linux
 role=java
 download_path=$shared_path/$role/linux
 mkdir -p $shared_path/$role/linux
@@ -85,6 +85,14 @@ app_ver=$(cat $roles_path/java8/defaults/main.yml | grep __java_version | awk '{
 download_url=https://devops-artifacts.experitest.com/$role/linux/jre$app_ver-linux-x64.tar.gz
 cd $download_path && { curl -O $download_url ; cd -; }
 
+# download java8 osx
+role=java
+download_path=$shared_path/$role/osx
+mkdir -p $shared_path/$role/osx
+
+app_ver=$(cat $roles_path/java8/defaults/main.yml | grep __java_version | awk '{print $2}')
+download_url=https://devops-artifacts.experitest.com/$role/osx/jre$app_ver-macosx-x64.tar.gz
+cd $download_path && { curl -O $download_url ; cd -; }
 
 # call download artifacts function
 download_artifacts
