@@ -172,7 +172,8 @@ download_path=$shared_path/$role/osx
 mkdir -p $shared_path/$role/osx
 
 app_ver=$(cat $roles_path/$role/defaults/main.yml | grep __app_version | awk '{print $2}')
-download_url=https://devops-artifacts.experitest.com/$role/osx/$component_$app_ver.zip
+sel_ver="_${app_ver//./_}"
+download_url=https://devops-artifacts.experitest.com/$role/osx/$component$sel_ver.zip
 cd $download_path && { curl -O $download_url ; cd -; }
 
 # download selenium agent windows
@@ -182,7 +183,8 @@ download_path=$shared_path/$role/windows
 mkdir -p $shared_path/$role/windows
 
 app_ver=$(cat $roles_path/$role/defaults/main.yml | grep __app_version | awk '{print $2}')
-download_url=https://devops-artifacts.experitest.com/$role/windows/$component_$app_ver.exe
+sel_ver="_${app_ver//./_}"
+download_url=https://devops-artifacts.experitest.com/$role/windows/$component$sel_ver.exe
 cd $download_path && { curl -O $download_url ; cd -; }
 
 }
