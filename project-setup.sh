@@ -172,7 +172,7 @@ download_path=$shared_path/$role/osx
 mkdir -p $shared_path/$role/osx
 
 app_ver=$(cat $roles_path/$role/defaults/main.yml | grep __app_version | awk '{print $2}')
-sel_ver="_${app_ver//./_}"
+sel_ver="_${app_ver//./.}"
 download_url=https://devops-artifacts.experitest.com/$role/osx/$component$sel_ver.zip
 cd $download_path && { curl -O $download_url ; cd -; }
 
