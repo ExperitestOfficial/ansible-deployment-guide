@@ -187,6 +187,17 @@ sel_ver="_${app_ver//./_}"
 download_url=https://devops-artifacts.experitest.com/$role/windows/$component$sel_ver.exe
 cd $download_path && { curl -O $download_url ; cd -; }
 
+# download cloud nv linux
+role=cloud-nv
+component=nvserver_unix
+download_path=$shared_path/$role/linux
+mkdir -p $shared_path/$role/linux
+
+app_ver=$(cat $roles_path/$role/defaults/main.yml | grep __app_version | awk '{print $2}')
+nv_ver="_${app_ver//./_}"
+download_url=https://devops-artifacts.experitest.com/nv/linux/$component$nv_ver.sh
+cd $download_path && { curl -O $download_url ; cd -; }
+
 }
 
 # call main function

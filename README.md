@@ -232,6 +232,21 @@ ansible-playbook -i inventories/cloud1/hosts.ini cloudagent.yml
 ansible-playbook -i inventories/cloud1/hosts.ini seleniumagent.yml
 ```
 
+## Install Cloud NV role:
+
+### Prerequisites:
+
+* SSH service should be running on the cloud-nv machine and ssh user was added to sudoers file with NOPASSWD: ALL privileges.
+
+
+### Install Cloud NV
+
+* From ansible controller machine, update nv.yml playbook (for e.g. set deployment_mode: offline and shared_storage_folder: /shared/experitest/ and set the other required parameters.) and run the playbook.
+
+```sh
+ansible-playbook -i inventories/cloud1/hosts.ini nv.yml
+```
+
 
 ## Run all installation in parallel:
 
